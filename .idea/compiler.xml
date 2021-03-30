@@ -7,11 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="hero" />
+        <module name="fight" />
         <module name="villain" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="fight" target="1.5" />
+      <module name="fight" target="11" />
       <module name="hero" target="11" />
       <module name="villain" target="11" />
     </bytecodeTargetLevel>
