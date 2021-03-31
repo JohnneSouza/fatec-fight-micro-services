@@ -1,0 +1,176 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v1
+  contact:
+    name: Johnnes Souza
+    email: jhonnesf5@gmail.com
+    url: 'https://www.linkedin.com/in/johnnesouza/'
+  license:
+    name: MIT
+    url: 'https://opensource.org/licenses/MIT'
+servers:
+  - url: 'http://localhost:8080'
+    description: Generated server url
+paths:
+  /superhero:
+    get:
+      tags:
+        - Hero Controller
+      operationId: findAll
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Hero'
+      parameters: []
+      summary: Find All
+      description: Retrieve all Heroes from the database.
+    post:
+      tags:
+        - Hero Controller
+      operationId: createHero
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Hero'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Hero'
+      parameters: []
+      summary: Creates a new Hero
+      description: Creates a new Hero based on the payload information
+  '/superhero/{id}':
+    get:
+      tags:
+        - Hero Controller
+      operationId: findHeroById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Hero'
+      summary: Find Hero By Id
+      description: Retrieve a Hero from the database given its ID
+    post:
+      tags:
+        - Hero Controller
+      operationId: createHeroFromId
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Hero'
+      summary: Creates a Hero from ID
+      description: |-
+        Create a new Hero from an ID trough a request on a open api:
+        https://akabab.github.io/superhero-api/api/
+  /superhero/find/random:
+    get:
+      tags:
+        - Hero Controller
+      operationId: findRandomHero
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Hero'
+      parameters: []
+      summary: Find Random Hero
+      description: Retrieves a random Hero from the database.
+  '/superhero/find/name/{name}':
+    get:
+      tags:
+        - Hero Controller
+      operationId: findHeroByName
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Hero'
+      summary: Find Hero By Name
+      description: >-
+        Retrieve a Hero by its name, if the Hero has a name and surname, you can
+        provide any of these.
+
+        Example for a Search for 'Swamp Thing'
+
+        You can try 'Swamp' or 'Thing' on the search.
+components:
+  schemas:
+    Hero:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        powerstats:
+          $ref: '#/components/schemas/HeroPowerStats'
+        images:
+          type: object
+          additionalProperties:
+            type: string
+    HeroPowerStats:
+      type: object
+      properties:
+        intelligence:
+          type: integer
+          format: int32
+        strength:
+          type: integer
+          format: int32
+        speed:
+          type: integer
+          format: int32
+        durability:
+          type: integer
+          format: int32
+        power:
+          type: integer
+          format: int32
+        combat:
+          type: integer
+          format: int32
+  links: {}
+  callbacks: {}
+security: []
+tags:
+  - name: Hero Controller
+    description: ''

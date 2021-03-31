@@ -6,7 +6,7 @@
 	<artifactId>fight</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<description>Fight Service</description>
-	<name>${description}</name>
+	<name>${project.description}</name>
 
 	<parent>
 		<groupId>br.gov.sp.fatec</groupId>
