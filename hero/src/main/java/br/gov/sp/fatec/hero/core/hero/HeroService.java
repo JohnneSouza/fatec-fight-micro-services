@@ -23,27 +23,34 @@ public class HeroService {
     }
 
     public List<Hero> findAll(){
+        log.info("Retrieving all Heroes from Database");
         return this.repository.findAll();
     }
 
     public Hero findHeroById(String id){
+        log.info("[{}] Find Hero by Id", id);
         return this.repository.findById(id)
                 .orElse(HeroStub.getHeroStub());
     }
 
     public Hero findHeroByName(String name){
+        log.info("[{}] Find hero by name", name);
         return this.repository.findByNameIsLike(name);
     }
 
     public Hero createFromId(String id){
+        log.info("[{}] Create Hero from Id", id);
         Hero hero = this.heroFeignClient.findById(id);
+        log.info("[{}] Found hero", hero.getName());
         return createHero(hero);
     }
 
     public Hero findRandomHero(){
-        List<Hero> all = this.repository.findAll();
-        Collections.shuffle(all);
-        return all.get(0);
+        log.info("Find Random Hero");
+        List<Hero> heroesList = this.repository.findAll();
+        log.info("[{}] Heroes were found", heroesList.size());
+        Collections.shuffle(heroesList);
+        return heroesList.get(0);
     }
 
 }
