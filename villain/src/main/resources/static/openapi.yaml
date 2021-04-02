@@ -1,0 +1,173 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v1
+  contact:
+    name: Johnnes Souza
+    email: jhonnesf5@gmail.com
+    url: 'https://www.linkedin.com/in/johnnesouza/'
+  license:
+    name: MIT
+    url: 'https://opensource.org/licenses/MIT'
+paths:
+  /supervillain:
+    get:
+      tags:
+        - Villain Controller
+      operationId: findAll
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Villain'
+      parameters: []
+      summary: Find All
+      description: Retrieve all Villaines from the database.
+    post:
+      tags:
+        - Villain Controller
+      operationId: createVillain
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Villain'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Villain'
+      parameters: []
+      summary: Creates a new Villain
+      description: Creates a new Villain based on the payload information
+  '/supervillain/{id}':
+    get:
+      tags:
+        - Villain Controller
+      operationId: findVillainById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Villain'
+      summary: Find Villain By Id
+      description: Retrieve a Villain from the database given its ID
+    post:
+      tags:
+        - Villain Controller
+      operationId: createVillainFromId
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Villain'
+      summary: Creates a Villain from ID
+      description: |-
+        Create a new Villain from an ID trough a request on a open api:
+        https://akabab.github.io/superhero-api/api/
+  /supervillain/find/random:
+    get:
+      tags:
+        - Villain Controller
+      operationId: findRandomVillain
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Villain'
+      parameters: []
+      summary: Find Random Villain
+      description: Retrieves a random Villain from the database.
+  '/supervillain/find/name/{name}':
+    get:
+      tags:
+        - Villain Controller
+      operationId: findVillainByName
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Villain'
+      summary: Find Villain By Name
+      description: >-
+        Retrieve a Villain by its name, if the Villain has a name and surname, you can
+        provide any of these.
+
+        Example for a Search for 'Swamp Thing'
+
+        You can try 'Swamp' or 'Thing' on the search.
+components:
+  schemas:
+    Villain:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        powerstats:
+          $ref: '#/components/schemas/VillainPowerStats'
+        images:
+          type: object
+          additionalProperties:
+            type: string
+    VillainPowerStats:
+      type: object
+      properties:
+        intelligence:
+          type: integer
+          format: int32
+        strength:
+          type: integer
+          format: int32
+        speed:
+          type: integer
+          format: int32
+        durability:
+          type: integer
+          format: int32
+        power:
+          type: integer
+          format: int32
+        combat:
+          type: integer
+          format: int32
+  links: {}
+  callbacks: {}
+security: []
+tags:
+  - name: Villain Controller
+    description: ''
