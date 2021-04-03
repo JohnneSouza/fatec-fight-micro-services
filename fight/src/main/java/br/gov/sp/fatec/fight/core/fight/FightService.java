@@ -3,6 +3,7 @@ package br.gov.sp.fatec.fight.core.fight;
 import br.gov.sp.fatec.fight.core.hero.Hero;
 import br.gov.sp.fatec.fight.core.hero.HeroFeignClient;
 import br.gov.sp.fatec.fight.core.villain.Villain;
+import br.gov.sp.fatec.fight.core.villain.VillainFeignClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -16,11 +17,21 @@ public class FightService {
     private static final String PICTURE_SIZE = "lg";
 
     private final HeroFeignClient heroFeignClient;
+    private final VillainFeignClient villainFeignClient;
     private final FightRepository fightRepository;
 
-    public FightService(HeroFeignClient heroFeignClient, FightRepository fightRepository) {
+    public FightService(HeroFeignClient heroFeignClient, VillainFeignClient villainFeignClient, FightRepository fightRepository) {
         this.heroFeignClient = heroFeignClient;
+        this.villainFeignClient = villainFeignClient;
         this.fightRepository = fightRepository;
+    }
+
+    public Hero findRandomHero(){
+        return this.heroFeignClient.findRandomHero();
+    }
+
+    public Villain findRandomVillain(){
+        return this.villainFeignClient.findRandomVillain();
     }
 
     public List<Fight> findAll(){
@@ -32,7 +43,7 @@ public class FightService {
         Hero hero = heroFeignClient.findRandomHero();
 
         log.info("Fetching a Random Villain");
-        Villain villain = new Villain();
+        Villain villain = this.villainFeignClient.findRandomVillain();
 
         return new Fighters(hero, villain);
     }

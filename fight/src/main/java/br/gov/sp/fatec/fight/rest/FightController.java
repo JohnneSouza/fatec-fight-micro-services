@@ -3,6 +3,8 @@ package br.gov.sp.fatec.fight.rest;
 import br.gov.sp.fatec.fight.core.fight.Fight;
 import br.gov.sp.fatec.fight.core.fight.FightService;
 import br.gov.sp.fatec.fight.core.fight.Fighters;
+import br.gov.sp.fatec.fight.core.hero.Hero;
+import br.gov.sp.fatec.fight.core.villain.Villain;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +26,16 @@ public class FightController {
     @GetMapping("/fighters")
     public Fighters findRandomFighters(){
         return this.fightService.findRandomFighters();
+    }
+
+    @GetMapping("/fighters/hero")
+    public Hero findRandomHero(){
+        return this.fightService.findRandomHero();
+    }
+
+    @GetMapping("/fighters/villain")
+    public Villain findRandomVillain(){
+        return this.fightService.findRandomVillain();
     }
 
     @GetMapping

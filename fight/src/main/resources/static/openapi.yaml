@@ -1,0 +1,160 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v1
+  contact:
+    name: Johnnes Souza
+    email: jhonnesf5@gmail.com
+    url: 'https://www.linkedin.com/in/johnnesouza'
+  license:
+    name: MIT
+    url: 'https://opensource.org/licenses/MIT'
+servers: []
+paths:
+  /fight:
+    get:
+      tags:
+        - fight-controller
+      operationId: Retrieve Fights History
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Fight'
+      parameters: []
+    post:
+      tags:
+        - fight-controller
+      operationId: Execute Fight
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Fighters'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Fight'
+      parameters: []
+  /fight/fighters:
+    get:
+      tags:
+        - fight-controller
+      operationId: Find Random Fighters
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Fighters'
+      parameters: []
+  /fight/fighters/villain:
+    get:
+      tags:
+        - fight-controller
+      operationId: Find a new Random Villain
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Villain'
+      parameters: []
+  /fight/fighters/hero:
+    get:
+      tags:
+        - fight-controller
+      operationId: Find a new Random Hero
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Hero'
+      parameters: []
+components:
+  schemas:
+    CharacterPowerStats:
+      type: object
+      properties:
+        intelligence:
+          type: integer
+          format: int32
+        strength:
+          type: integer
+          format: int32
+        speed:
+          type: integer
+          format: int32
+        durability:
+          type: integer
+          format: int32
+        power:
+          type: integer
+          format: int32
+        combat:
+          type: integer
+          format: int32
+    Fighters:
+      type: object
+      properties:
+        hero:
+          $ref: '#/components/schemas/Hero'
+        villain:
+          $ref: '#/components/schemas/Villain'
+    Hero:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        powerstats:
+          $ref: '#/components/schemas/CharacterPowerStats'
+        images:
+          type: object
+          additionalProperties:
+            type: string
+    Villain:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        powerstats:
+          $ref: '#/components/schemas/CharacterPowerStats'
+        images:
+          type: object
+          additionalProperties:
+            type: string
+    Fight:
+      type: object
+      properties:
+        id:
+          type: string
+        fightDate:
+          type: string
+          format: date-time
+        winnerName:
+          type: string
+        winnerPicture:
+          type: string
+        loserName:
+          type: string
+        loserPicture:
+          type: string
+  links: {}
+  callbacks: {}
+security: []

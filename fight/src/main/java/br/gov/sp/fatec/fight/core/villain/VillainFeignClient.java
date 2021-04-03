@@ -1,4 +1,4 @@
-package br.gov.sp.fatec.fight.core.hero;
+package br.gov.sp.fatec.fight.core.villain;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,16 +6,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(value = "hero", url = "${service.url.hero}")
-public interface HeroFeignClient {
+@FeignClient(value = "villain", url = "${service.url.villain}")
+public interface VillainFeignClient {
 
     @GetMapping("/find/random")
-    Hero findRandomHero();
+    Villain findRandomVillain();
 
     @GetMapping("{id}")
-    Hero findHeroById(@PathVariable String id);
+    Villain findVillainById(@PathVariable String id);
 
     @GetMapping("/find/name/{name}")
-    List<Hero> findHeroByName(@PathVariable String name);
+    List<Villain> findVillainByName(@PathVariable String name);
 
 }
