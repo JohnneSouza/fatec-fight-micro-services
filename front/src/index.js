@@ -1,17 +1,49 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, {useState, useEffect} from 'react';
+import ReactDom from 'react-dom'
+
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const random_fighters_url = "https://fatec-hero-service.herokuapp.com/superhero"
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const RetrieveUsers = () => {
+  const [users, setUsers] = useState([])
+  
+  const getFighters = async () => {
+    const response = await fetch(random_fighters_url);
+    const users = await response.json()
+    setUsers(users);
+  };
+
+  useEffect(() => {
+    getFighters();
+  }, []);
+
+  return users;
+};
+
+
+function Character({id, name, powerstats, images}){
+  return (
+    <article className='character'>
+      <img src={images} alt=""/>
+      <h1>{name}</h1>
+      <h4>Combat Power: {powerstats.combat}</h4>
+      <h4>Durability: {powerstats.durability}</h4>
+      <h4>{id}</h4>
+    </article>
+  )
+}
+
+function CharacterList(){
+  return (
+    <section className="characterList">
+      {RetrieveUsers().map((char) => {
+        return <Character key={char.id} images={char.images.md} name={char.name} powerstats={char.powerstats}/>
+      })}
+    </section>    
+  )
+}
+
+ReactDom.render(
+  <CharacterList/>,
+  document.getElementById('root'))
