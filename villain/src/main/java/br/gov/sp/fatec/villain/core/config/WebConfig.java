@@ -1,4 +1,4 @@
-package br.gov.sp.fatec.fight.core.config;
+package br.gov.sp.fatec.villain.core.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
