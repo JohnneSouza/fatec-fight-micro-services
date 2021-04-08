@@ -1,10 +1,7 @@
 {
-  "name": "front",
+  "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "10.15.3"
-  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
@@ -37,11 +34,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.13.14",
-    "@babel/core": "^7.13.14",
-    "@babel/node": "^7.13.13",
-    "@babel/preset-env": "^7.13.12"
   }
 }
