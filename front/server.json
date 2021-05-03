@@ -1,0 +1,211 @@
+{
+  "characters": [
+    {
+      "_id": "644",
+      "name": "Superman",
+      "powerstats": {
+        "intelligence": 94,
+        "strength": 100,
+        "speed": 100,
+        "durability": 100,
+        "power": 100,
+        "combat": 85
+      },
+      "images": {
+        "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/644-superman.jpg"
+      }
+    },
+    {
+      "_id": "645",
+      "name": "Swamp Thing",
+      "powerstats": {
+        "intelligence": 88,
+        "strength": 95,
+        "speed": 25,
+        "durability": 100,
+        "power": 100,
+        "combat": 55
+      },
+      "images": {
+        "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/645-swamp-thing.jpg"
+      }
+    },
+    {
+      "_id": "1",
+      "name": "A-Bomb",
+      "powerstats": {
+        "intelligence": 38,
+        "strength": 100,
+        "speed": 17,
+        "durability": 80,
+        "power": 24,
+        "combat": 64
+      },
+      "images": {
+        "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/1-a-bomb.jpg"
+      }
+    },
+    {
+      "_id": "2",
+      "name": "Abe Sapien",
+      "powerstats": {
+        "intelligence": 88,
+        "strength": 28,
+        "speed": 35,
+        "durability": 65,
+        "power": 100,
+        "combat": 85
+      },
+      "images": {
+        "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/2-abe-sapien.jpg"
+      }
+    },
+    {
+      "_id": "3",
+      "name": "Abin Sur",
+      "powerstats": {
+        "intelligence": 50,
+        "strength": 90,
+        "speed": 53,
+        "durability": 64,
+        "power": 99,
+        "combat": 65
+      },
+      "images": {
+        "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/3-abin-sur.jpg"
+      }
+    },
+    {
+      "_id": "4",
+      "name": "Abomination",
+      "powerstats": {
+        "intelligence": 63,
+        "strength": 80,
+        "speed": 53,
+        "durability": 90,
+        "power": 62,
+        "combat": 95
+      },
+      "images": {
+        "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/4-abomination.jpg"
+      }
+    },
+    {
+      "_id": "5",
+      "name": "Abraxas",
+      "powerstats": {
+        "intelligence": 88,
+        "strength": 63,
+        "speed": 83,
+        "durability": 100,
+        "power": 100,
+        "combat": 55
+      },
+      "images": {
+        "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/5-abraxas.jpg"
+      }
+    },
+    {
+      "_id": "10",
+      "name": "Agent Bob",
+      "powerstats": {
+        "intelligence": 10,
+        "strength": 8,
+        "speed": 13,
+        "durability": 5,
+        "power": 5,
+        "combat": 20
+      },
+      "images": {
+        "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/10-agent-bob.jpg"
+      }
+    },
+    {
+      "_id": "15",
+      "name": "Alex Mercer",
+      "powerstats": {
+        "intelligence": 50,
+        "strength": 80,
+        "speed": 42,
+        "durability": 90,
+        "power": 100,
+        "combat": 50
+      },
+      "images": {
+        "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/15-alex-mercer.jpg"
+      }
+    },
+    {
+      "_id": "400",
+      "name": "Lady Deathstrike",
+      "powerstats": {
+        "intelligence": 63,
+        "strength": 28,
+        "speed": 42,
+        "durability": 85,
+        "power": 48,
+        "combat": 90
+      },
+      "images": {
+        "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/400-lady-deathstrike.jpg"
+      }
+    }
+  ],
+  "fight": [
+    {
+      "_id": "1",
+      "fightDate": {
+        "$date": "2021-04-02T03:58:40.598Z"
+      },
+      "winnerName": "Swamp Thing",
+      "winnerPicture": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/645-swamp-thing.jpg",
+      "loserName": "Swamp Thing",
+      "loserPicture": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/645-swamp-thing.jpg",
+      "_class": "br.gov.sp.fatec.fight.core.fight.Fight"
+    },
+    {
+      "_id": "2",
+      "fightDate": {
+        "$date": "2021-04-02T03:58:40.598Z"
+      },
+      "winnerName": "Swamp Thing",
+      "winnerPicture": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/645-swamp-thing.jpg",
+      "loserName": "Swamp Thing",
+      "loserPicture": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/645-swamp-thing.jpg",
+      "_class": "br.gov.sp.fatec.fight.core.fight.Fight"
+    },
+    {
+      "_id": "3",
+      "fightDate": {
+        "$date": "2021-04-02T03:58:40.598Z"
+      },
+      "winnerName": "Swamp Thing",
+      "winnerPicture": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/645-swamp-thing.jpg",
+      "loserName": "Swamp Thing",
+      "loserPicture": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/645-swamp-thing.jpg",
+      "_class": "br.gov.sp.fatec.fight.core.fight.Fight"
+    },
+    {
+      "_id": "4",
+      "fightDate": {
+        "$date": "2021-04-02T03:58:40.598Z"
+      },
+      "winnerName": "Swamp Thing",
+      "winnerPicture": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/645-swamp-thing.jpg",
+      "loserName": "Swamp Thing",
+      "loserPicture": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/645-swamp-thing.jpg",
+      "_class": "br.gov.sp.fatec.fight.core.fight.Fight"
+    },
+    {
+      "_id": "5",
+      "fightDate": {
+        "$date": "2021-04-02T03:58:40.598Z"
+      },
+      "winnerName": "Swamp Thing",
+      "winnerPicture": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/645-swamp-thing.jpg",
+      "loserName": "Swamp Thing",
+      "loserPicture": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/645-swamp-thing.jpg",
+      "_class": "br.gov.sp.fatec.fight.core.fight.Fight"
+    }
+  ]
+}
